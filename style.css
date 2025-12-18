@@ -8,8 +8,22 @@
   --muted: #475569;
   --border: rgba(15, 23, 42, 0.10);
   --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
-  --accent: #2563eb;
+
+  --accent: #2563eb;   /* general links */
   --accent-2: #06b6d4;
+
+  /* Highlights (calm blue/gray) */
+  --hi: #1d4ed8;
+  --hi-2: #0ea5e9;
+  --hi-border: rgba(37, 99, 235, 0.22);
+  --hi-bg: rgba(37, 99, 235, 0.08);
+
+  /* News (dark green) */
+  --news: #065f46;
+  --news-2: #10b981;
+  --news-border: rgba(16, 185, 129, 0.25);
+  --news-bg: rgba(16, 185, 129, 0.10);
+
   --radius: 16px;
   --max: 1100px;
 }
@@ -22,13 +36,18 @@
     --muted:#94a3b8;
     --border: rgba(226,232,240,0.14);
     --shadow: 0 14px 34px rgba(0,0,0,0.35);
-    --accent:#60a5fa;
-    --accent-2:#22d3ee;
+
+    --hi-border: rgba(96, 165, 250, 0.28);
+    --hi-bg: rgba(96, 165, 250, 0.12);
+
+    --news-border: rgba(16, 185, 129, 0.28);
+    --news-bg: rgba(16, 185, 129, 0.12);
   }
 }
 
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
+
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -54,14 +73,14 @@ a:hover{ text-decoration:underline; }
 
 .wrap{
   max-width: var(--max);
-  margin: 28px auto;
-  padding: 0 18px;
+  margin: 24px auto;
+  padding: 0 16px;
 }
 
 .layout{
   display:grid;
-  grid-template-columns: 330px 1fr;
-  gap: 18px;
+  grid-template-columns: 300px 1fr; /* smaller sidebar */
+  gap: 16px;
   align-items:start;
 }
 
@@ -74,70 +93,72 @@ a:hover{ text-decoration:underline; }
 ========== */
 .sidebar{
   position: sticky;
-  top: 18px;
+  top: 16px;
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 18px;
+  padding: 16px;
   overflow:hidden;
 }
 
 .brand{
   display:flex;
-  gap: 14px;
+  gap: 12px;
   align-items:center;
 }
 
 .avatar{
-  width: 92px;
-  height: 92px;
-  border-radius: 18px;      /* modern rounded-square */
-  object-fit: cover;         /* fixes oval/cropping issues */
+  width: 76px;
+  height: 76px;
+  border-radius: 16px;   /* modern rounded-square */
+  object-fit: cover;      /* fixes stretch/oval issues */
   border: 1px solid var(--border);
   background: rgba(148,163,184,0.15);
 }
 
 .name{
   margin:0;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   letter-spacing: -0.02em;
 }
 
 .role{
   margin: 4px 0 0;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.35;
 }
 
 .meta{
-  margin-top: 14px;
+  margin-top: 12px;
   display:grid;
   gap: 8px;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
 }
 
 .pills{
   display:flex;
   flex-wrap:wrap;
   gap:8px;
-  margin-top: 14px;
+  margin-top: 12px;
 }
 
 .pill{
-  font-size: 0.82rem;
+  font-size: 0.80rem;
   padding: 6px 10px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(37,99,235,0.06);
+  background: rgba(148,163,184,0.08);
+  color: var(--muted);
 }
 
 .actions{
   display:flex;
   gap:10px;
-  margin-top: 16px;
+  margin-top: 14px;
+  flex-wrap:wrap;
 }
 
 .btn{
@@ -150,7 +171,7 @@ a:hover{ text-decoration:underline; }
   border: 1px solid var(--border);
   background: transparent;
   color: var(--text);
-  font-weight: 600;
+  font-weight: 650;
   font-size: 0.92rem;
   cursor:pointer;
   text-decoration:none;
@@ -165,30 +186,39 @@ a:hover{ text-decoration:underline; }
 .social{
   display:flex;
   gap:10px;
-  margin-top: 14px;
+  margin-top: 12px;
   flex-wrap:wrap;
 }
 .social a{
-  width: 38px; height: 38px;
-  display:grid; place-items:center;
+  width: 32px;
+  height: 32px;
+  display:grid;
+  place-items:center;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 10px;
   background: rgba(148,163,184,0.08);
 }
-.social img{ width: 18px; height: 18px; opacity: 0.9; }
+.social img{
+  width: 16px;
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  opacity: 0.9;
+}
 
 .nav{
-  margin-top: 18px;
-  padding-top: 14px;
+  margin-top: 14px;
+  padding-top: 12px;
   border-top: 1px solid var(--border);
   display:grid;
-  gap: 8px;
+  gap: 6px;
 }
 .nav a{
-  padding: 10px 10px;
+  padding: 9px 10px;
   border-radius: 12px;
   color: var(--muted);
   border: 1px solid transparent;
+  font-size: 0.92rem;
 }
 .nav a:hover{
   background: rgba(37,99,235,0.06);
@@ -214,7 +244,7 @@ a:hover{ text-decoration:underline; }
 
 .card h2{
   margin: 0 0 10px;
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   letter-spacing: -0.01em;
 }
 
@@ -222,6 +252,7 @@ a:hover{ text-decoration:underline; }
   margin: 0;
   color: var(--muted);
   line-height: 1.6;
+  font-size: 1rem;
 }
 
 .grid2{
@@ -233,15 +264,26 @@ a:hover{ text-decoration:underline; }
   .grid2{ grid-template-columns: 1fr; }
 }
 
+/* Highlights (blue/gray) */
 .highlight{
-  border: 1px solid var(--border);
+  border: 1px solid var(--hi-border);
   border-radius: 14px;
-  padding: 12px;
-  background: rgba(148,163,184,0.06);
+  padding: 12px 12px 12px 14px;
+  background: var(--hi-bg);
+  position: relative;
+}
+.highlight::before{
+  content:"";
+  position:absolute;
+  left:0; top:10px; bottom:10px;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--hi), var(--hi-2));
 }
 .highlight strong{ display:block; margin-bottom: 6px; }
 .small{ color: var(--muted); font-size: 0.95rem; line-height: 1.55; }
 
+/* News (green) */
 .news{
   display:grid;
   gap: 10px;
@@ -249,8 +291,8 @@ a:hover{ text-decoration:underline; }
 .news-item{
   padding: 12px 12px 12px 14px;
   border-radius: 14px;
-  border: 1px solid var(--border);
-  background: rgba(37,99,235,0.05);
+  border: 1px solid var(--news-border);
+  background: var(--news-bg);
   position: relative;
 }
 .news-item::before{
@@ -259,7 +301,7 @@ a:hover{ text-decoration:underline; }
   left:0; top:10px; bottom:10px;
   width: 4px;
   border-radius: 999px;
-  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  background: linear-gradient(180deg, var(--news), var(--news-2));
 }
 .news-item span{
   color: var(--muted);
@@ -272,6 +314,7 @@ a:hover{ text-decoration:underline; }
   color: var(--muted);
   line-height: 1.7;
 }
+
 .pub{
   margin: 10px 0 0;
   padding: 12px;
@@ -285,5 +328,13 @@ footer{
   text-align:center;
   color: var(--muted);
   font-size: 0.9rem;
-  padding: 10px 0 20px;
+  padding: 10px 0 18px;
+}
+
+/* Extra responsive tightening */
+@media (max-width: 920px){
+  .sidebar{ position: relative; top: auto; }
+  .avatar{ width: 64px; height: 64px; }
+  .social a{ width: 30px; height: 30px; }
+  .social img{ width: 15px; height: 15px; }
 }
