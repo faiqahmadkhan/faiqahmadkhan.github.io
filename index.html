@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Faiq Ahmad Khan</title>
-  <meta name="description" content="Faiq Ahmad Khan — PhD student and researcher in biomedical signal processing, computer vision, embedded ML, and IoT." />
+  <meta name="description" content="Faiq Ahmad Khan — PhD student and researcher in forward-deployed AI / LLM systems, multimodal VLM fine-tuning, inference serving, and biomedical signal processing." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -21,7 +21,8 @@
             <h1 class="name">Faiq Ahmad Khan</h1>
             <p class="role">
               Ph.D. Student • Electrical &amp; Computer Engineering<br/>
-              University of Alabama
+              University of Alabama<br/>
+              Forward-Deployed AI / LLM Systems
             </p>
           </div>
         </div>
@@ -33,11 +34,12 @@
         </div>
 
         <div class="pills">
+          <div class="pill">LLM / VLM Systems</div>
+          <div class="pill">PEFT &amp; QLoRA</div>
+          <div class="pill">Inference Serving</div>
+          <div class="pill">RAG &amp; Agents</div>
           <div class="pill">Biomedical Signal Processing</div>
-          <div class="pill">Deep Learning</div>
-          <div class="pill">Computer Vision</div>
           <div class="pill">Embedded ML</div>
-          <div class="pill">IoT</div>
         </div>
 
         <div class="actions">
@@ -68,7 +70,10 @@
           <a href="#about">About</a>
           <a href="#highlights">Highlights</a>
           <a href="#news">News</a>
+          <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
           <a href="#publications">Publications</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -79,9 +84,12 @@
         <section id="about" class="card">
           <h2>About</h2>
           <p class="lead">
-            I am a Ph.D. student and Graduate Research Assistant at the University of Alabama. My work focuses on
-            food intake analysis using wearable cameras, biomedical signal processing, and machine learning—bridging
-            research with real-world deployment on embedded devices.
+            I am a Ph.D. student and Graduate Research Assistant at the University of Alabama, building multimodal
+            and LLM/VLM systems end-to-end — from fine-tuning (QLoRA/LoRA, Megatron full-parameter training,
+            DeepSpeed ZeRO-3) through local production inference (SGLang, vLLM, speculative decoding, RAG, and
+            agentic tool integration). My background spans biomedical signal processing, food intake analysis using
+            wearable cameras, and explainable AI, and I bring that same rigor to deploying efficient AI systems on
+            real hardware.
           </p>
         </section>
 
@@ -89,8 +97,13 @@
           <h2>Highlights</h2>
           <div class="grid2">
             <div class="highlight">
-              <strong>Research + Deployment</strong>
-              <div class="small">Developed ML pipelines and validated models on locally developed embedded devices using local datasets.</div>
+              <strong>Local LLM Inference &amp; Agentic Deployment</strong>
+              <div class="small">Built a local Qwen agent stack (SGLang, speculative decoding, MTP/DFlash2, LiteLLM, TLS), increasing measured generation throughput from ~93 to ~250 tokens/s (~2.7×).</div>
+            </div>
+
+            <div class="highlight">
+              <strong>Multimodal VLM Fine-Tuning (QLoRA)</strong>
+              <div class="small">Fine-tuned Qwen3.5-9B for dietary image understanding, cutting mean calorie error by 48% relative to the untuned baseline.</div>
             </div>
 
             <div class="highlight">
@@ -99,13 +112,8 @@
             </div>
 
             <div class="highlight">
-              <strong>Teaching & Labs</strong>
+              <strong>Teaching &amp; Labs</strong>
               <div class="small">Conducted labs in embedded systems, ML/AI, electronics, and microcontroller interfacing; delivered hands-on workshops.</div>
-            </div>
-
-            <div class="highlight">
-              <strong>Expertise</strong>
-              <div class="small">Biomedical signal processing, deep learning, computer vision, embedded systems, and IoT.</div>
             </div>
           </div>
         </section>
@@ -113,6 +121,9 @@
         <section id="news" class="card">
           <h2>News</h2>
           <div class="news">
+            <div class="news-item">
+              <strong>2026:</strong> <span>Paper published at AIME 2026 (Canada): "Explainable AI-Driven Optimized LSTM for Heart Sound Classification and Diagnostic Support," Springer LNCS vol. 16749. <a href="https://doi.org/10.1007/978-3-032-30813-9_5" target="_blank" rel="noreferrer">Read the paper</a>.</span>
+            </div>
             <div class="news-item">
               <strong>Oct 2025:</strong> <span>Attending BHI conference (Atlanta, GA, USA).</span>
             </div>
@@ -122,19 +133,89 @@
           </div>
         </section>
 
+        <section id="skills" class="card">
+          <h2>Technical Skills</h2>
+
+          <div class="pub">
+            <b>LLM/VLM &amp; Post-Training</b>
+            <div class="small">PyTorch, Hugging Face Transformers, PEFT, LoRA, QLoRA, SFT; hands-on VLM instruction tuning; Megatron-based full-parameter training; DeepSpeed ZeRO-3; BF16/INT4 workflows.</div>
+          </div>
+
+          <div class="pub">
+            <b>Inference &amp; Serving</b>
+            <div class="small">SGLang, vLLM, llama.cpp, LiteLLM; speculative decoding, MTP/DFlash2 drafting, KV-cache/inference optimization, tensor-parallel deployment, OpenAI-compatible APIs.</div>
+          </div>
+
+          <div class="pub">
+            <b>Efficiency</b>
+            <div class="small">INT8 post-training quantization, 4-bit base-weight quantization for QLoRA, pruning experiments, gradient checkpointing/accumulation; latency and throughput benchmarking.</div>
+          </div>
+
+          <div class="pub">
+            <b>RAG &amp; Agents</b>
+            <div class="small">CLIP/text embeddings, Chroma/vector search, reranking, LangChain, structured JSON outputs, tool/function calling, local-model integration with agentic workflows.</div>
+          </div>
+
+          <div class="pub">
+            <b>Production &amp; Systems</b>
+            <div class="small">Python, C/C++, Linux, Docker, Git, REST APIs, TLS/reverse-proxy deployment, distributed training (DDP/FSDP/ZeRO/TP/PP), GPU performance profiling.</div>
+          </div>
+        </section>
+
         <section id="experience" class="card">
           <h2>Experience</h2>
           <ul class="list">
-            <li><b>Graduate Research Assistant</b>, University of Alabama (May 2024–Present)</li>
-            <li><b>Lab Engineer</b>, NUML University, Dept. of Electrical Engineering (Late 2020–May 2024)</li>
-            <li><b>Research Assistant</b>, AI in Healthcare, IIPL / NCAI, UET Peshawar (Intern → RA, ~2018–2020)</li>
-            <li><b>B.E. Electrical Engineering</b>, FAST-NUCES (2018)</li>
-            <li><b>M.S. Electrical Engineering</b>, FAST-NUCES Islamabad (Biomedical signal processing + explainable ML)</li>
+            <li><b>Graduate Research Assistant</b>, University of Alabama, Tuscaloosa, AL (May 2024 – Present)</li>
+            <li><b>Lab Engineer</b>, NUML, Islamabad, Pakistan (Mar 2020 – Mar 2024)</li>
+            <li><b>Research Assistant</b>, NCAI, UET Peshawar, Peshawar, Pakistan (Aug 2019 – Feb 2020)</li>
+          </ul>
+        </section>
+
+        <section id="projects" class="card">
+          <h2>Selected AI Systems &amp; Research Projects</h2>
+
+          <div class="pub">
+            <b>Local LLM Inference &amp; Agentic Deployment — Qwen / SGLang / LiteLLM</b>
+            <div class="small">Deployed a local Qwen model behind SGLang and an OpenAI-compatible LiteLLM interface over TLS, connected to agentic coding/tool workflows. Integrated DFlash2 speculative drafting and MTP, benchmarking a ~2.7× throughput gain (~93 → ~250 tokens/s) on the same local inference stack.</div>
+          </div>
+
+          <div class="pub">
+            <b>Qwen3.5-9B Multimodal Dietary Fine-Tuning — QLoRA</b>
+            <div class="small">Built multimodal instruction data pairing egocentric meal images with structured food, portion, calorie, and item-count supervision with JSON-formatted outputs. Fine-tuned Qwen3.5-9B with QLoRA (rank r=16, quantized base weights), reducing mean calorie absolute error from 43.1% to 22.4% (48% relative reduction) and item-count MAE from 1.20 to 0.40 versus the untuned baseline.</div>
+          </div>
+
+          <div class="pub">
+            <b>Megatron Full-Parameter Fine-Tuning Study — Small-Data VLM Adaptation</b>
+            <div class="small">Ran a Megatron-based full-parameter training experiment on the same dietary multimodal task and compared it against the parameter-efficient QLoRA approach. Diagnosed poor generalization in the small-data regime — despite training convergence, held-out calorie error worsened versus the untuned baseline.</div>
+          </div>
+
+          <div class="pub">
+            <b>DietAI24 — Retrieval-Augmented Food Identification &amp; Calorie Estimation</b>
+            <div class="small">Built sequence RAG for food identification and FNDDS-based calorie estimation using CLIP embeddings, vector retrieval, reranking, and SSIM gating to skip redundant frames.</div>
+          </div>
+
+          <div class="pub">
+            <b>Neo-EEGPT — EEG Seizure Detection &amp; Android Deployment</b>
+            <div class="small">Trained an EEG Transformer for neonatal seizure detection with subject-wise validation; deployed to Android with INT8 PTQ, reducing model size by 3.53×.</div>
+          </div>
+        </section>
+
+        <section id="education" class="card">
+          <h2>Education</h2>
+          <ul class="list">
+            <li><b>Ph.D., Electrical Engineering</b> — The University of Alabama, Tuscaloosa, AL (May 2024 – Present), CGPA 3.86/4.0</li>
+            <li><b>M.S., Electrical Engineering</b> — FAST National University, Islamabad, Pakistan (2022 – 2024), CGPA 4.0/4.0</li>
+            <li><b>B.S., Electrical Engineering</b> — FAST National University, Peshawar, Pakistan (2014 – 2018), CGPA 3.75/4.0</li>
           </ul>
         </section>
 
         <section id="publications" class="card">
           <h2>Selected Publications</h2>
+
+          <div class="pub">
+            <b>Explainable AI-Driven Optimized LSTM for Heart Sound Classification and Diagnostic Support.</b>
+            <div class="small">Khan, F.A., Hassan, A., Anwar, L., Bermak, A. — In: Artificial Intelligence in Medicine (AIME 2026), Canada. Lecture Notes in Computer Science, vol. 16749. Springer, Cham. <a href="https://doi.org/10.1007/978-3-032-30813-9_5" target="_blank" rel="noreferrer">DOI</a></div>
+          </div>
 
           <div class="pub">
             <b>Explainable AI for epileptic seizure detection in Internet of Medical Things.</b>
@@ -144,6 +225,16 @@
           <div class="pub">
             <b>Explainable fuzzy deep learning for prediction of epileptic seizures using EEG.</b>
             <div class="small">IEEE Transactions on Fuzzy Systems, 2024.</div>
+          </div>
+
+          <div class="pub">
+            <b>Deep learning based classification of unsegmented phonocardiogram spectrograms leveraging transfer learning.</b>
+            <div class="small">K. N. Khan, F. A. Khan, et al. — Physiological Measurement, 42(9), 2021.</div>
+          </div>
+
+          <div class="pub">
+            <b>Enhancing robotic manipulator fault detection with advanced machine learning techniques.</b>
+            <div class="small">Khan, F. A., Jamil, A., Khan, S. A., &amp; Hameed, A. A. — Engineering Research Express, 2024.</div>
           </div>
 
           <p class="small" style="margin-top:12px;">
